@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplikacjaARPIdeas", "AplikacjaARPIdeas\AplikacjaARPIdeas.csproj", "{C61D1981-6BA3-412B-9689-531B421E6361}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C61D1981-6BA3-412B-9689-531B421E6361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C61D1981-6BA3-412B-9689-531B421E6361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C61D1981-6BA3-412B-9689-531B421E6361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C61D1981-6BA3-412B-9689-531B421E6361}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B9F7FFA-5426-4CB3-8D5B-B9873F8D70DA}
+	EndGlobalSection
+EndGlobal

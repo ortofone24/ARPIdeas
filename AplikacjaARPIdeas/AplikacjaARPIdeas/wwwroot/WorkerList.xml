@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<workerlist>
+  <worker>
+    <id>1</id>
+    <name>Marcin</name>
+    <surename>Gala</surename>
+    <age>38</age>
+    <salary>1200</salary>
+    <identyficationnumber>1111111111</identyficationnumber>
+  </worker>
+</workerlist>
