@@ -25,15 +25,24 @@ namespace AplikacjaARPIdeas.Models
         {
             _hostingEnvironment = environment;
             var path = Path.Combine(_hostingEnvironment.WebRootPath, "WorkerList.xml");
-            allWorkers = new List<Worker>();
+
             workerData = XDocument.Load(path);
-            var workers = from workerlist in workerData.Descendants("worker")
-                          select new Worker((int)workerlist.Element("id"),
-                                                 workerlist.Element("name").Value,
-                                                 workerlist.Element("surname").Value,
-                                            (int)workerlist.Element("age"),
-                                        (decimal)workerlist.Element("salary"),
-                                          (float)workerlist.Element("identyficationnumber"));
+
+            allWorkers = new List<Worker>();
+
+            var workers =
+            (
+                from workerlist in workerData.Descendants("worker")
+                select new Worker
+                {
+                    Id = (int) workerlist.Element("id"),
+                    Name = (string) workerlist.Element("name"),
+                    SureName = (string) workerlist.Element("surename"),
+                    Age = (int) workerlist.Element("age"),
+                    Salary = (decimal) workerlist.Element("salary"),
+                    IdentyficationNumber = (int) workerlist.Element("identyficationnumber")
+                }
+            );
 
             allWorkers.AddRange(workers.ToList<Worker>());
         }
@@ -41,9 +50,6 @@ namespace AplikacjaARPIdeas.Models
 
         public IEnumerable<Worker> GetAllWorkers()
         {
-            //var path = Path.Combine(_hostingEnvironment.WebRootPath, "WorkerList.xml");
-            //allWorkers = new List<Worker>();
-            //workerData = XDocument.Load(path);
             return allWorkers;
         }
 
@@ -54,12 +60,27 @@ namespace AplikacjaARPIdeas.Models
 
         public void AddWorker(Worker worker)
         {
-            throw new NotImplementedException();
+            var path = Path.Combine(_hostingEnvironment.WebRootPath, "WorkerList.xml");
+            worker.Id = (int) (from workerlist in workerData.Descendants("worker")
+                            orderby (int) workerlist.Element("id")
+                                descending
+                            select (int) workerlist.Element("id")).FirstOrDefault() + 1;
+
+            workerData.Root.Add(new XElement("worker", new XElement("id", (int)worker.Id),
+                                                       new XElement("name", (string)worker.Name),
+                                                       new XElement("surename", (string)worker.SureName),
+                                                       new XElement("age", (int)worker.Age),
+                                                       new XElement("salary", (decimal)worker.Salary),
+                                                       new XElement("identyficationnumber", (int)worker.IdentyficationNumber)
+                                                       ));
+            workerData.Save(path);
         }
 
         public void DeleteWorker(int id)
         {
-            throw new NotImplementedException();
+            var path = Path.Combine(_hostingEnvironment.WebRootPath, "WorkerList.xml");
+            workerData.Root.Elements("worker").Where(i => (int)i.Element("id") == id).Remove();
+            workerData.Save(path);
         }
 
         public void EditWorker(Worker worker)
