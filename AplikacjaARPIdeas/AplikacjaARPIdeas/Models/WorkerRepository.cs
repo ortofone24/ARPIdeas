@@ -85,7 +85,17 @@ namespace AplikacjaARPIdeas.Models
 
         public void EditWorker(Worker worker)
         {
-            throw new NotImplementedException();
+            var path = Path.Combine(_hostingEnvironment.WebRootPath, "WorkerList.xml");
+            XElement node = workerData.Root.Elements("worker")
+                .FirstOrDefault(i => (int) i.Element("id") == worker.Id);
+
+            node.SetElementValue("name", (string) worker.Name);
+            node.SetElementValue("surename", (string)worker.SureName);
+            node.SetElementValue("age", (int)worker.Age);
+            node.SetElementValue("salary", (decimal)worker.Salary);
+            node.SetElementValue("identyficationnumber", (int)worker.IdentyficationNumber);
+
+            workerData.Save(path);
         }
     }
 }
