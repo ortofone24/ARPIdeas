@@ -1,30 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
-using System.Xml;
-using System.Xml.Serialization;
+using AplikacjaARPIdeas.Controllers;
+using AplikacjaARPIdeas.Models;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
 
-namespace AplikacjaARPIdeas.Models
+namespace AplikacjaARPIdeas.Repositories
 {
     public class WorkerRepository : IWorkerRepository
     {
         private IHostingEnvironment _hostingEnvironment;
 
-        
+
         private List<Worker> allWorkers;
         private XDocument workerData;
-        
+
 
         public WorkerRepository(IHostingEnvironment environment)
         {
             _hostingEnvironment = environment;
-            var path = Path.Combine(_hostingEnvironment.WebRootPath, "WorkerList.xml");
+            var path = Path.Combine(_hostingEnvironment.WebRootPath, @"xml\WorkerList.xml");
 
             workerData = XDocument.Load(path);
 
@@ -35,12 +31,12 @@ namespace AplikacjaARPIdeas.Models
                 from workerlist in workerData.Descendants("worker")
                 select new Worker
                 {
-                    Id = (int) workerlist.Element("id"),
-                    Name = (string) workerlist.Element("name"),
-                    SureName = (string) workerlist.Element("surename"),
-                    Age = (int) workerlist.Element("age"),
-                    Salary = (decimal) workerlist.Element("salary"),
-                    IdentyficationNumber = (int) workerlist.Element("identyficationnumber")
+                    Id = (int)workerlist.Element("id"),
+                    Name = (string)workerlist.Element("name"),
+                    SureName = (string)workerlist.Element("surename"),
+                    Age = (int)workerlist.Element("age"),
+                    Salary = (decimal)workerlist.Element("salary"),
+                    IdentyficationNumber = (int)workerlist.Element("identyficationnumber")
                 }
             );
 
@@ -60,11 +56,11 @@ namespace AplikacjaARPIdeas.Models
 
         public void AddWorker(Worker worker)
         {
-            var path = Path.Combine(_hostingEnvironment.WebRootPath, "WorkerList.xml");
-            worker.Id = (int) (from workerlist in workerData.Descendants("worker")
-                            orderby (int) workerlist.Element("id")
-                                descending
-                            select (int) workerlist.Element("id")).FirstOrDefault() + 1;
+            var path = Path.Combine(_hostingEnvironment.WebRootPath, @"xml\WorkerList.xml");
+            worker.Id = (int)(from workerlist in workerData.Descendants("worker")
+                              orderby (int)workerlist.Element("id")
+                                  descending
+                              select (int)workerlist.Element("id")).FirstOrDefault() + 1;
 
             workerData.Root.Add(new XElement("worker", new XElement("id", (int)worker.Id),
                                                        new XElement("name", (string)worker.Name),
@@ -78,18 +74,18 @@ namespace AplikacjaARPIdeas.Models
 
         public void DeleteWorker(int id)
         {
-            var path = Path.Combine(_hostingEnvironment.WebRootPath, "WorkerList.xml");
+            var path = Path.Combine(_hostingEnvironment.WebRootPath, @"xml\WorkerList.xml");
             workerData.Root.Elements("worker").Where(i => (int)i.Element("id") == id).Remove();
             workerData.Save(path);
         }
 
         public void EditWorker(Worker worker)
         {
-            var path = Path.Combine(_hostingEnvironment.WebRootPath, "WorkerList.xml");
+            var path = Path.Combine(_hostingEnvironment.WebRootPath, @"xml\WorkerList.xml");
             XElement node = workerData.Root.Elements("worker")
-                .FirstOrDefault(i => (int) i.Element("id") == worker.Id);
+                .FirstOrDefault(i => (int)i.Element("id") == worker.Id);
 
-            node.SetElementValue("name", (string) worker.Name);
+            node.SetElementValue("name", (string)worker.Name);
             node.SetElementValue("surename", (string)worker.SureName);
             node.SetElementValue("age", (int)worker.Age);
             node.SetElementValue("salary", (decimal)worker.Salary);
@@ -97,5 +93,7 @@ namespace AplikacjaARPIdeas.Models
 
             workerData.Save(path);
         }
+
+
     }
 }

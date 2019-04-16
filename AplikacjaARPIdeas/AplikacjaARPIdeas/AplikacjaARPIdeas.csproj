@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\WorkerList.xml" />
+    <None Include="wwwroot\xml\WorkerList.xml" />
   </ItemGroup>
 
   <ItemGroup>

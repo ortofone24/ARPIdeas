@@ -1,7 +1,12 @@
 ﻿using AplikacjaARPIdeas.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
+using System.Threading.Tasks;
+using AplikacjaARPIdeas.Repositories;
 using Microsoft.AspNetCore.Http;
+using Microsoft.CodeAnalysis;
+
 
 namespace AplikacjaARPIdeas.Controllers
 {
@@ -88,6 +93,39 @@ namespace AplikacjaARPIdeas.Controllers
                 ViewBag.ErrorMsg = "Błąd przy usuwaniu. " + e.Message;
                 return View(_workerRepository.GetWorkersById(id));
             }
+        }
+        #endregion
+
+        #region Edit
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            Worker worker = _workerRepository.GetWorkersById(id);
+            if (worker == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(worker);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Worker worker)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _workerRepository.EditWorker(worker);
+                    return RedirectToAction("Index");
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("", "Błąd edytowania. " + e.Message);
+                }
+            }
+
+            return View(worker);
         }
         #endregion
 

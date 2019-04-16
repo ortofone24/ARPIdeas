@@ -24,4 +24,12 @@
     <salary>8000</salary>
     <identyficationnumber>1111111111</identyficationnumber>
   </worker>
+  <worker>
+    <id>4</id>
+    <name>rykj</name>
+    <surename>yrtk</surename>
+    <age>45</age>
+    <salary>573357357</salary>
+    <identyficationnumber>135135151</identyficationnumber>
+  </worker>
 </workerlist>

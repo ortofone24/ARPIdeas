@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace AplikacjaARPIdeas.Models
 {
@@ -10,12 +6,7 @@ namespace AplikacjaARPIdeas.Models
     {
         public Worker()
         {
-            //Id = 0;
-            //Name = null;
-            //SureName = null;
-            //Age = 0;
-            //Salary = 0;
-            //IdentyficationNumber = 0;
+         
         }
 
         

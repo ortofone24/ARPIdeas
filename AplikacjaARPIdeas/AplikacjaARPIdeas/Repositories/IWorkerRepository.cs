@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using AplikacjaARPIdeas.Models;
+using System.Collections.Generic;
 
-namespace AplikacjaARPIdeas.Models
+namespace AplikacjaARPIdeas.Repositories
 {
     public interface IWorkerRepository
     {
