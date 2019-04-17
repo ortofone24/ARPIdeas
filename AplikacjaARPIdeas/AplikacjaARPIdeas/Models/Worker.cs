@@ -23,14 +23,17 @@ namespace AplikacjaARPIdeas.Models
 
         public int Id { get; set; }
         [Display(Name = "Imię")]
+        [Required(ErrorMessage = "Wymagane imię")]
         public string Name { get; set; }
         [Display(Name = "Nazwisko")]
+        [Required(ErrorMessage = "Wymagane nazwisko")]
         public string SureName { get; set; }
         [Display(Name = "Wiek")]
         public int Age { get; set; }
         [Display(Name = "Wynagrodzenie")]
         public decimal Salary { get; set; }
         [Display(Name = "Numer NIP")]
+        [Required(ErrorMessage = "Wymagany numer NIP")]
         public int IdentyficationNumber { get; set; }
 
     }

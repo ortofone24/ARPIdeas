@@ -2,24 +2,24 @@
 <workerlist>
   <worker>
     <id>1</id>
-    <name>Marcin</name>
-    <surename>Gala</surename>
-    <age>38</age>
+    <name>Michu</name>
+    <surename>Hkoko</surename>
+    <age>34</age>
     <salary>1200</salary>
     <identyficationnumber>1111111111</identyficationnumber>
   </worker>
   <worker>
     <id>2</id>
-    <name>Hania</name>
-    <surename>Gala</surename>
+    <name>Hania rtyju</name>
+    <surename>qeherh</surename>
     <age>12</age>
-    <salary>10000</salary>
+    <salary>1000000</salary>
     <identyficationnumber>2111111111</identyficationnumber>
   </worker>
   <worker>
     <id>3</id>
-    <name>Malgosia</name>
-    <surename>Ruszniak</surename>
+    <name>Malgosia rrr</name>
+    <surename>yrd</surename>
     <age>36</age>
     <salary>8000</salary>
     <identyficationnumber>1111111111</identyficationnumber>
@@ -31,5 +31,13 @@
     <age>45</age>
     <salary>573357357</salary>
     <identyficationnumber>135135151</identyficationnumber>
+  </worker>
+  <worker>
+    <id>6</id>
+    <name>etdhjth</name>
+    <surename>thth</surename>
+    <age>45</age>
+    <salary>34534634</salary>
+    <identyficationnumber>346734634</identyficationnumber>
   </worker>
 </workerlist>
