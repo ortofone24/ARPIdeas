@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using AplikacjaARPIdeas.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using AplikacjaARPIdeas.Controllers;
-using AplikacjaARPIdeas.Models;
-using Microsoft.AspNetCore.Hosting;
 
 namespace AplikacjaARPIdeas.Repositories
 {
@@ -14,8 +13,7 @@ namespace AplikacjaARPIdeas.Repositories
         
         private List<Worker> allWorkers;
         private XDocument workerData;
-
-
+        
 
         public WorkerRepository()
         {

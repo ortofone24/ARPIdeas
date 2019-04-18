@@ -1,11 +1,8 @@
 ﻿using AplikacjaARPIdeas.Models;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using AplikacjaARPIdeas.Repositories;
 using Microsoft.AspNetCore.Http;
-using Microsoft.CodeAnalysis;
+using Microsoft.AspNetCore.Mvc;
+using System;
 
 
 namespace AplikacjaARPIdeas.Controllers
@@ -13,12 +10,12 @@ namespace AplikacjaARPIdeas.Controllers
     public class HomeController : Controller
     {
         private readonly IWorkerRepository _workerRepository;
-
+        
         public HomeController(IWorkerRepository workerRepository)
         {
             _workerRepository = workerRepository;
         }
-
+        
         [HttpGet]
         public IActionResult Index()
         {

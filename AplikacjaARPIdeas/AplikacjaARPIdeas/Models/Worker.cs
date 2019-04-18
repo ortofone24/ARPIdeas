@@ -8,9 +8,7 @@ namespace AplikacjaARPIdeas.Models
         {
          
         }
-
         
-
         public Worker( int id, string name, string sureName, int age, decimal salary, int identyficationNumber)
         {
             Id = id;
