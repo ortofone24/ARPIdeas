@@ -11,11 +11,16 @@ namespace AplikacjaARPIdeas.Repositories
     public class WorkerRepository : IWorkerRepository
     {
         private IHostingEnvironment _hostingEnvironment;
-
-
+        
         private List<Worker> allWorkers;
         private XDocument workerData;
 
+
+
+        public WorkerRepository()
+        {
+            
+        }
 
         public WorkerRepository(IHostingEnvironment environment)
         {
@@ -43,7 +48,7 @@ namespace AplikacjaARPIdeas.Repositories
             allWorkers.AddRange(workers.ToList<Worker>());
         }
 
-
+        
         public IEnumerable<Worker> GetAllWorkers()
         {
             return allWorkers;

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplikacjaARPIdeas", "AplikacjaARPIdeas\AplikacjaARPIdeas.csproj", "{C61D1981-6BA3-412B-9689-531B421E6361}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AplikacjaARPIdeas", "AplikacjaARPIdeas\AplikacjaARPIdeas.csproj", "{C61D1981-6BA3-412B-9689-531B421E6361}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplikacjaARPIdeas.Tests", "AplikacjaARPIdeas.Tests\AplikacjaARPIdeas.Tests.csproj", "{5C4ED53C-7026-4BF8-8AE3-2E5B810C9053}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C61D1981-6BA3-412B-9689-531B421E6361}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C61D1981-6BA3-412B-9689-531B421E6361}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C61D1981-6BA3-412B-9689-531B421E6361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C4ED53C-7026-4BF8-8AE3-2E5B810C9053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C4ED53C-7026-4BF8-8AE3-2E5B810C9053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C4ED53C-7026-4BF8-8AE3-2E5B810C9053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C4ED53C-7026-4BF8-8AE3-2E5B810C9053}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
